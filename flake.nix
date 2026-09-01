@@ -1,0 +1,15 @@
+{
+  description = "Portfolio dev environment";
+
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+  outputs = { self, nixpkgs }:
+    let
+      system = "x86_64-linux";          # aarch64-linux if you're on ARM
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      devShells.${system}.default = pkgs.mkShell {
+        packages = [ pkgs.nodejs_22 ];  # node + npm; run `corepack enable` for yarn/pnpm
+      };
+    };
+}
