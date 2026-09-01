@@ -15,6 +15,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # TEMPORARY: prints the exact OIDC subject GitHub will send.
+      # Compare its output to the trust policy's refs/heads/... entry,
+      # then delete this step once the deploy works.
+      - name: Debug OIDC subject
+        run: echo "repo:${GITHUB_REPOSITORY}:ref:${GITHUB_REF}"
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
