@@ -1,0 +1,42 @@
+name: Deploy portfolio
+
+on:
+  push:
+    branches: [master]
+
+# Required for OIDC: lets the runner request a token to assume the AWS role.
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::701411677795:role/portfolio-deploy-policy
+          aws-region: eu-north-1
+
+      - name: Sync to S3
+        run: aws s3 sync dist/ s3://portfolio-701411677795-eu-north-1-an --delete
+
+      - name: Invalidate CloudFront cache
+        run: >
+          aws cloudfront create-invalidation
+          --distribution-id E3IH00KBSUNGTV
+          --paths "/*"
