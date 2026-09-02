@@ -7,9 +7,9 @@
 /* EDIT ME: github / linkedin / resume are placeholders. */
 export const LINKS = {
   email: "senne.geerts2003@gmail.com",
-  github: "https://github.com/your-username", // TODO
-  linkedin: "https://www.linkedin.com/in/your-handle", // TODO
-  resume: "/senne-geerts-cv.pdf", // TODO
+  github: "https://github.com/Senne-Geerts",
+  linkedin: "https://www.linkedin.com/in/senne-geerts",
+  resume: "/CV_Senne_Geerts_EN.pdf",
 };
 
 /* Drives both the nav labels and the scroll-spy. id must match the
@@ -27,9 +27,10 @@ export const hero = {
   eyebrow: "// junior full-stack developer",
   name: "Senne Geerts.",
   blurb:
-    "Junior full-stack developer with professional experience in Ruby on Rails and academic experience in " +
-    "Java/Spring Boot. I learn fast, work independently or in a team, and have a real interest in identity and " +
-    "authentication (JWT), modern web tech, and DevOps.",
+    "Junior full-stack developer with professional experience in" +
+    "Ruby on Rails and academic experience in Java/Spring Boot. " + 
+    "I learn fast, work well independently or in a team, and I'm drawn " + 
+    "to modern web tech and DevOps — especially when I'm building things that make a real difference in people's lives."
 };
 
 export const about = {
