@@ -27,18 +27,18 @@ export const hero = {
   eyebrow: "// junior full-stack developer",
   name: "Senne Geerts.",
   blurb:
-    "Junior full-stack developer with professional experience in" +
-    "Ruby on Rails and academic experience in Java/Spring Boot. " + 
-    "I learn fast, work well independently or in a team, and I'm drawn " + 
-    "to modern web tech and DevOps — especially when I'm building things that make a real difference in people's lives."
+    "Junior full-stack developer with professional experience in " +
+    "Ruby on Rails and academic experience in Java/Spring Boot. " +
+    "Most of my work so far has been on civic-tech platforms — voting advice, " +
+    "citizen participation — and I like the DevOps side as much as the code."
 };
 
 export const about = {
   body:
-    "I'm a junior developer based in Zemst, Belgium, with hands-on experience shipping features in Ruby on Rails " +
-    "and a solid academic foundation in Java/Spring Boot. I like taking things apart to see how they work — " +
-    "whether that's a codebase, a bike, or a home server — and I'm just as happy debugging a tricky edge case as I " +
-    "am shipping something new.",
+    "I'm a junior developer based in Zemst, Belgium. My professional experience is in " +
+    "Ruby on Rails, from an internship at Bpart and a contract at Tree Company, with a Java/Spring Boot " +
+    "foundation from my degree. Outside of work I run a home server and race road bikes, and both scratch the " +
+    "same itch: figuring out how something works and then pushing it a bit further.",
   languages: "Dutch (C2) · English (B1) · French (A2)",
 };
 
