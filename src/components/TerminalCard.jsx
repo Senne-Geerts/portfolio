@@ -1,10 +1,9 @@
 import React from "react";
 import { mono } from "../theme";
-import { termScript } from "../content";
 import { useTypedScript } from "../hooks/useTypedScript";
 
-export function TerminalCard({ t }) {
-  const { lines, done } = useTypedScript(termScript);
+export function TerminalCard({ t, script, label }) {
+  const { lines, done } = useTypedScript(script);
 
   const cursor = (
     <span
@@ -33,7 +32,7 @@ export function TerminalCard({ t }) {
       <div
         className="p-4 text-sm leading-relaxed"
         style={{ fontFamily: mono, color: t.ink, minHeight: 168 }}
-        aria-label="Terminal introducing Senne Geerts"
+        aria-label={label || "Terminal introducing Senne Geerts"}
       >
         {lines.map((l, i) =>
           l.type === "cmd" ? (

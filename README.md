@@ -5,7 +5,10 @@ live in different files.
 
 ```
 src/
-  content.js            ← all copy & data. Edit this when your CV changes.
+  content.js            ← locale registry and contact links.
+  locales/
+    en.json             ← English copy and CV data.
+    nl.json             ← Dutch copy and CV data.
   theme.js              ← colours, fonts, font import. Edit this to restyle.
   utils.js              ← prefersReduced() and other tiny shared helpers.
   hooks/
@@ -21,7 +24,11 @@ src/
 
 ## Where to edit
 
-- **New job, project, or skill?** → `src/content.js`, nothing else.
+- **New job, project, or skill?** → update `src/locales/en.json` and
+  `src/locales/nl.json`.
+- **Add or select a language?** → register its JSON resource in
+  `src/content.js` and add its locale code to the language toggle in
+  `Portfolio.jsx`.
 - **Restyle?** → `src/theme.js`. Components read tokens (`t.pine`, `mono`…),
   they don't hard-code colours.
 - **Add a section?** Add an entry to `sections` in `content.js` (its `id` must

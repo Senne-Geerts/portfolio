@@ -1,0 +1,90 @@
+{
+  "sections": [
+    { "id": "about", "label": "over-mij.tsx" },
+    { "id": "experience", "label": "ervaring.tsx" },
+    { "id": "stack", "label": "stack.tsx" },
+    { "id": "projects", "label": "projecten.tsx" },
+    { "id": "education", "label": "opleiding.tsx" },
+    { "id": "contact", "label": "contact.tsx" }
+  ],
+  "hero": {
+    "eyebrow": "// junior full-stack developer",
+    "name": "Senne Geerts.",
+    "blurb": "Junior full-stack developer met professionele ervaring in Ruby on Rails en academische ervaring met Java/Spring Boot. Mijn werk tot nu toe focust vooral op digitale democratie — stemadvies, burgerparticipatie — en ik hou evenveel van de DevOps-kant als van code."
+  },
+  "about": {
+    "body": "Ik ben een junior developer uit Zemst, België. Mijn professionele ervaring ligt bij Ruby on Rails, dankzij een stage bij Bpart en een periode bij Tree Company, met een basis in Java/Spring Boot uit mijn opleiding. Buiten het werk beheer ik een homeserver en doe ik aan duursport; beide prikkelen dezelfde nieuwsgierigheid: uitzoeken hoe iets werkt en het daarna nog wat verder brengen.",
+    "languages": "Nederlands (C2) · Engels (B1) · Frans (A2)"
+  },
+  "termScript": [
+    { "type": "cmd", "text": "whoami" },
+    { "type": "out", "text": "Senne Geerts — junior full-stack developer" },
+    { "type": "cmd", "text": "cat stack.txt" },
+    { "type": "out", "text": "Ruby on Rails · Java/Spring · React · Node" },
+    { "type": "cmd", "text": "cat locatie.txt" },
+    { "type": "out", "text": "Zemst, België" }
+  ],
+  "skillGroups": [
+    { "label": "talen & frameworks", "items": ["Java", "Spring Boot", "Ruby on Rails", "Node.js/Express", "Python", "React", "C#"] },
+    { "label": "web", "items": ["HTML", "CSS", "JavaScript", "REST/JSON"] },
+    { "label": "databases", "items": ["SQL", "PostgreSQL", "NoSQL"] },
+    { "label": "identiteit & auth", "items": ["JWT (Spring Boot)", "JWT (Node/Express)"] },
+    { "label": "os & tools", "items": ["Linux", "Docker", "Self-hosting", "AWS", "Azure", "Power BI"] }
+  ],
+  "experience": [
+    {
+      "role": "Full-stack developer",
+      "org": "Tree Company",
+      "period": "feb 2026 — aug 2026",
+      "note": "Contract van bepaalde duur",
+      "bullets": [
+        "Smartvote onderhouden en uitgebreid, een online stemadviesapplicatie voor de Zwitserse markt (Ruby on Rails).",
+        "Discuss-it gebouwd, een platform voor commentaarmoderatie en peilingen.",
+        "Zelfstandig features opgeleverd en bugs opgelost in bestaande codebases; vlot gewerkt met git-workflows zoals rebasen en code review.",
+        "Bijgedragen aan projectvoorstellen voor de publieke sector."
+      ]
+    },
+    {
+      "role": "Full-stack developer (stagiair)",
+      "org": "Bpart",
+      "period": "2025",
+      "bullets": [
+        "Meegewerkt aan Bparts online platform voor burgerparticipatie.",
+        "Nieuwe features ontwikkeld en bugs opgelost in Ruby on Rails.",
+        "Praktische ervaring opgedaan met professionele softwareontwikkeling en DevOps-principes."
+      ]
+    },
+    {
+      "role": "Magazijnmedewerker (studentenjob)",
+      "org": "Retail Partners Colruyt Group, Mechelen",
+      "period": "2021 — 2025",
+      "bullets": ["Logistieke taken (orderpicking, verpakking) zelfstandig en nauwkeurig uitgevoerd."]
+    }
+  ],
+  "projects": [
+    { "tag": "project.01", "title": "Smartvote", "stack": "Ruby on Rails", "desc": "Online stemadviesapplicatie voor de Zwitserse markt. Onderhouden en uitgebreid als onderdeel van het Tree Company-team." },
+    { "tag": "project.02", "title": "Discuss-it", "stack": "Ruby on Rails", "desc": "Platform voor commentaarmoderatie en peilingen, gebouwd bij Tree Company." },
+    { "tag": "project.03", "title": "Chiro Skippy — website & kassa-app", "stack": "Vrijwilligerswerk", "desc": "Website voor een lokale jeugdbeweging gebouwd en onderhouden; een kassa-app ontwikkeld voor evenementen." },
+    { "tag": "project.04", "title": "Homeserver", "stack": "Docker · Linux · Self-hosted", "desc": "Zelfgehoste homeserver met NAS-, monitoring-, media- en automatisatiediensten; een voortdurend speelterrein voor DevOps en containers." }
+  ],
+  "education": [
+    { "school": "UCLL Leuven", "program": "Professionele bachelor Toegepaste Informatica", "period": "2021 — 2025", "bullets": ["Java/Spring Boot-projecten: chatbot, blogbeheersysteem en automatisch plantenbewateringssysteem.", "Ervaring met JWT-authenticatie in Java/Spring Boot en Node/Express.", "Praktische full-stackontwikkeling en groepsprojecten.", "Stage bij Bpart met focus op webontwikkeling in Ruby on Rails."] },
+    { "school": "Ursulinen Mechelen", "program": "Boekhouden-Informatica", "period": "2015 — 2021", "bullets": ["Brede basis in informatica en economie, die de overstap naar Toegepaste Informatica versterkte."] }
+  ],
+  "ui": {
+    "skipToContent": "ga naar inhoud",
+    "sections": "Secties",
+    "getInTouch": "contacteer mij",
+    "viewWork": "Bekijk werk",
+    "contact": "Contact",
+    "languages": "Talen",
+    "email": "e-mail",
+    "resume": "cv ↓",
+    "location": "Zemst, België",
+    "title": "Senne Geerts — Junior Full-stack Developer",
+    "lightTheme": "licht",
+    "darkTheme": "donker",
+    "sectionHeadings": { "about": "over mij", "experience": "ervaring", "stack": "stack", "projects": "projecten", "education": "opleiding" },
+    "terminalLabel": "Terminal die Senne Geerts voorstelt"
+  }
+}

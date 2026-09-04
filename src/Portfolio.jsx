@@ -4,13 +4,7 @@ import { themes, mono, sans, serif, fontImport } from "./theme";
 import { prefersReduced } from "./utils";
 import {
   LINKS,
-  sections,
-  hero,
-  about,
-  skillGroups,
-  experience,
-  projects,
-  education,
+  getLocaleContent,
 } from "./content";
 
 import { useScrollSpy } from "./hooks/useScrollSpy";
@@ -21,6 +15,8 @@ import { TerminalCard } from "./components/TerminalCard";
 
 export default function Portfolio() {
   const [theme, setTheme] = useState("light");
+  const [locale, setLocale] = useState("en");
+  const { sections, hero, about, termScript, skillGroups, experience, projects, education, ui } = getLocaleContent(locale);
   const [active, setActive] = useScrollSpy(sections, "about");
   const t = themes[theme];
 
@@ -29,8 +25,9 @@ export default function Portfolio() {
     if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
       setTheme("dark");
     }
-    document.title = "Senne Geerts — Junior Full-stack Developer";
-  }, []);
+    document.title = ui.title;
+    document.documentElement.lang = locale;
+  }, [locale, ui.title]);
 
   const go = (id) => (e) => {
     e.preventDefault();
@@ -72,7 +69,7 @@ export default function Portfolio() {
       <style>{dynamicStyle}</style>
 
       <a href="#about" className="skiplink" onClick={go("about")}>
-        skip to content
+        {ui.skipToContent}
       </a>
 
       {/* Nav */}
@@ -83,7 +80,7 @@ export default function Portfolio() {
         <a href="#about" onClick={go("about")} className="py-4 pr-6 font-semibold text-sm" style={{ fontFamily: mono, color: t.pine }}>
           SG
         </a>
-        <nav aria-label="Sections" className="flex flex-1 overflow-x-auto">
+        <nav aria-label={ui.sections} className="flex flex-1 overflow-x-auto">
           {sections.map((s) => (
             <a
               key={s.id}
@@ -103,14 +100,24 @@ export default function Portfolio() {
           ))}
         </nav>
         <div className="flex items-center gap-2 pl-3">
-          <ThemeToggle theme={theme} setTheme={setTheme} t={t} />
+          <ThemeToggle theme={theme} setTheme={setTheme} t={t} labels={ui} />
+          <button
+            type="button"
+            onClick={() => setLocale(locale === "en" ? "nl" : "en")}
+            aria-label={locale === "en" ? "Schakel naar Nederlands" : "Switch to English"}
+            title={locale === "en" ? "Nederlands" : "English"}
+            className="text-xs px-3 py-2 rounded-md transition-colors"
+            style={{ fontFamily: mono, color: t.inkSoft, border: `1px solid ${t.line}`, backgroundColor: "transparent" }}
+          >
+            {locale === "en" ? "NL" : "EN"}
+          </button>
           <a
             href="#contact"
             onClick={go("contact")}
             className="hidden sm:inline-block text-sm px-4 py-2 rounded-md"
             style={{ fontFamily: mono, backgroundColor: t.ink, color: t.paper }}
           >
-            get in touch
+            {ui.getInTouch}
           </a>
         </div>
       </header>
@@ -134,7 +141,7 @@ export default function Portfolio() {
               className="px-5 py-3 rounded-md text-sm font-medium"
               style={{ fontFamily: sans, backgroundColor: t.pine, color: t.onPine }}
             >
-              View work
+              {ui.viewWork}
             </a>
             <a
               href="#contact"
@@ -142,24 +149,24 @@ export default function Portfolio() {
               className="px-5 py-3 rounded-md text-sm font-medium"
               style={{ fontFamily: sans, border: `1px solid ${t.line}`, color: t.ink }}
             >
-              Contact
+              {ui.contact}
             </a>
           </div>
         </Reveal>
         <Reveal delay={120} className="flex justify-center md:justify-end">
-          <TerminalCard t={t} />
+          <TerminalCard t={t} script={termScript} label={ui.terminalLabel} />
         </Reveal>
       </section>
 
       {/* About */}
       <section className="px-6 sm:px-12 py-14 max-w-3xl mx-auto" id="about" style={sectionMt}>
         <Reveal>
-          <SectionLabel t={t}>about</SectionLabel>
+          <SectionLabel t={t}>{ui.sectionHeadings.about}</SectionLabel>
           <p className="text-xl leading-relaxed mb-4" style={{ fontFamily: serif, fontWeight: 400, color: t.ink }}>
             {about.body}
           </p>
           <p className="text-sm" style={{ fontFamily: sans, color: t.inkSoft }}>
-            Languages: {about.languages}
+            {ui.languages}: {about.languages}
           </p>
         </Reveal>
       </section>
@@ -167,7 +174,7 @@ export default function Portfolio() {
       {/* Experience */}
       <section className="px-6 sm:px-12 py-14 max-w-3xl mx-auto" id="experience" style={sectionMt}>
         <Reveal>
-          <SectionLabel t={t}>experience</SectionLabel>
+          <SectionLabel t={t}>{ui.sectionHeadings.experience}</SectionLabel>
         </Reveal>
         <div className="space-y-8">
           {experience.map((job, idx) => (
@@ -201,7 +208,7 @@ export default function Portfolio() {
       {/* Skills */}
       <section className="px-6 sm:px-12 py-14 max-w-3xl mx-auto" id="stack" style={sectionMt}>
         <Reveal>
-          <SectionLabel t={t}>stack</SectionLabel>
+          <SectionLabel t={t}>{ui.sectionHeadings.stack}</SectionLabel>
           <div className="grid sm:grid-cols-2 gap-6">
             {skillGroups.map((group) => (
               <div key={group.label}>
@@ -228,7 +235,7 @@ export default function Portfolio() {
       {/* Projects */}
       <section className="px-6 sm:px-12 py-14 max-w-5xl mx-auto" id="projects" style={sectionMt}>
         <Reveal>
-          <SectionLabel t={t}>projects</SectionLabel>
+          <SectionLabel t={t}>{ui.sectionHeadings.projects}</SectionLabel>
         </Reveal>
         <div className="grid sm:grid-cols-2 gap-5">
           {projects.map((p, idx) => (
@@ -260,7 +267,7 @@ export default function Portfolio() {
       {/* Education */}
       <section className="px-6 sm:px-12 py-14 max-w-3xl mx-auto" id="education" style={sectionMt}>
         <Reveal>
-          <SectionLabel t={t}>education</SectionLabel>
+          <SectionLabel t={t}>{ui.sectionHeadings.education}</SectionLabel>
         </Reveal>
         <div className="space-y-8">
           {education.map((ed, idx) => (
@@ -301,12 +308,12 @@ export default function Portfolio() {
             {LINKS.email}
           </a>
           <p className="text-sm" style={{ fontFamily: mono, color: t.inkSoft }}>
-            Zemst, Belgium
+            {ui.location}
           </p>
         </div>
         <div className="flex gap-5 text-sm" style={{ fontFamily: mono }}>
           <a href={`mailto:${LINKS.email}`} style={{ color: t.pine }}>
-            email
+            {ui.email}
           </a>
           <a href={LINKS.github} target="_blank" rel="noopener noreferrer" style={{ color: t.pine }}>
             github
@@ -315,7 +322,7 @@ export default function Portfolio() {
             linkedin
           </a>
           <a href={LINKS.resume} target="_blank" rel="noopener noreferrer" style={{ color: t.amber }}>
-            resume ↓
+            {ui.resume}
           </a>
         </div>
       </footer>
